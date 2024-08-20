@@ -1,0 +1,168 @@
+@font-face{
+	font-family: 'Saira Condensed';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/sairacondensed/v11/EJRLQgErUN8XuHNEtX81i9TmEkrnfc9Q962f.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* General styling */
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+
+/* Background canvas */
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1b3052;
+    background-image: url("yuClockBG1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Fullscreen icon styling */
+
+#fullscreenicon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    filter: invert(1); /* Makes the icon white */
+}
+
+#fullscreenicon.hidden {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Dropdown menu styling */
+
+.dropdown {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: inline-block;
+}
+
+.dropbtn {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    padding: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Aligns the menu to the right */
+    background-color:  #6b6b6b ;
+    min-width: 140px; /* Reduced width */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+	opacity: .6;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 12px; /* Reduced padding */
+    text-decoration: none;
+    display: block;
+    font-size: 16px; /* Reduced font size */
+	text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #3e3e3e;
+}
+
+#menuIcon.hidden {
+	opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Clock display styling */
+
+.clock {
+    position: absolute;
+    color: #000000;
+    font-family: "Saira Condensed";
+    letter-spacing: 10px;
+    text-align: center;
+	
+	font-size: clamp(12px, 5vw, 300px);
+}
+
+#MyClockDisplay {
+	width: 38%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    background: linear-gradient(184deg, rgba(219, 159, 38, 1) 0%, rgba(255, 218, 1, 1) 60%, rgba(219, 159, 38, 1) 100%);
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2), 0 3px 30px 0 rgba(10, 20, 10, 10.19);
+    border-radius: 15px;
+    padding: 20px 0;
+    /* width: auto; */
+    white-space: nowrap;
+    margin: auto;
+	overflow: hide;
+	transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Timer display styling */
+
+#timerDisplay {
+    position: absolute;
+    color: #000000;
+	font-size: clamp(48px, 5vw, 500px);
+    /* font-size: clamp(18px, 4vw, 200px); */
+    font-family: "Saira Condensed";
+    text-align: center;
+    background: linear-gradient(184deg, rgba(219, 159, 38, 1) 0%, rgba(255, 218, 1, 1) 60%, rgba(219, 159, 38, 1) 100%);
+    border-radius: 15px;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2), 0 3px 30px 0 rgba(10, 20, 10, 10.19);
+    /* padding: 10px 0; */
+    /* width: 50%; */
+	width: 38%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.5);
+    bottom: -50%;
+}
+
+/* Transitions */
+
+#MyClockDisplay.shrink {
+    transition: all 1s;
+    transform: translate(-50%, -50%) scale(0.5);
+    top: 10%;
+}
+
+#MyClockDisplay.fade {
+	 opacity: 0.3;
+}
+
+#timerDisplay.grow {
+    transition: all 1s;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    bottom: 50%;
+}

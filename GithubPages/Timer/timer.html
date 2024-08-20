@@ -1,0 +1,137 @@
+<!--
+Made by Shahir Ahmed https://github.com/shahirmed
+and Zargham Ibrahim https://github.com/zargham-i/
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Year Up Timer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="particles-js">
+      <!--- Timer Drop Down Menu --->
+      <div class="dropdown">
+        <img src="timer-icon.png" alt="Menu" class="dropbtn" id="menuIcon">
+        <div class="dropdown-content" id="dropdownMenu">
+          <a href="#" id="tenMin">10 Minutes</a>
+          <a href="#" id="fifteenMin">15 Minutes</a>
+          <a href="#" id="twentyMin">20 Minutes</a>
+          <a href="#" id="twentyFiveMin">25 Minutes</a>
+          <a href="#" id="thirtyMin">30 Minutes</a>
+          <a href="#" id="customTimer">Custom</a>
+        </div>
+
+        <!-- Dropdown Menu Toggling -->
+        <script>
+  document.getElementById("menuIcon").addEventListener("click", function() {
+    // Check if the element with ID 'timerDisplay' is present on the page
+    var checkfortimer = document.getElementById('timerDisplay');
+
+    if (checkfortimer) {
+		document.body.removeChild(checkfortimer);
+		resetClockDisplay();
+    } else {
+      // Toggle the dropdown menu if 'timerDisplay' does not exist
+      var dropdownMenu = document.getElementById("dropdownMenu");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+  });
+
+  window.onclick = function(event) {
+    if (!event.target.matches('#menuIcon')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.style.display === "block") {
+          openDropdown.style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+      </div>
+      
+      <!-- Fullscreen Icon -->
+      <img src="full-screen.png" id="fullscreenicon" width="75" height="75" onclick="clickImg(this)" />
+
+      <!-- Fullscreen Button Functionality -->
+      <script>
+        function clickImg(img) {
+          if (isDocumentInFullScreenMode()) {
+            closeFullscreen();
+          } else {
+            openFullscreen();
+          }
+        }
+
+        function isDocumentInFullScreenMode() {
+          return document.fullscreenElement !== null;
+        }
+
+        var elem = document.documentElement;
+
+        function openFullscreen() {
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+          }
+        }
+
+        function closeFullscreen() {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          }
+        }
+      </script>
+
+      <!-- Hiding Fullscreen Icon With Inactivity -->
+      <script>
+        const fullscreenIcon = document.getElementById('fullscreenicon');
+		const timerIcon = document.getElementById('menuIcon');
+        let inactivityTimeout;
+
+        function showFullscreenIcon() {
+          fullscreenIcon.classList.remove('hidden');
+		  timerIcon.classList.remove('hidden');
+        }
+
+        function hideFullscreenIcon() {
+          fullscreenIcon.classList.add('hidden');
+		  timerIcon.classList.add('hidden');
+        }
+
+        function resetInactivityTimeout() {
+          clearTimeout(inactivityTimeout);
+          showFullscreenIcon();
+          inactivityTimeout = setTimeout(hideFullscreenIcon, 1500);
+        }
+
+        document.addEventListener('mousemove', resetInactivityTimeout);
+        document.addEventListener('keydown', resetInactivityTimeout);
+        inactivityTimeout = setTimeout(hideFullscreenIcon, 1500);
+      </script>
+    </div>
+    
+    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+    <script src="./script.js"></script>
+    
+  </body>
+</html>
+
