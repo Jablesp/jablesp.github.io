@@ -2,7 +2,6 @@ function showTime() {
   const now = new Date();
   time = now.toLocaleTimeString('en-US',{timeZone: 'America/New_York'});
   document.getElementById("MyClockDisplay").textContent = time;
-  // setTimeout(showTime, 1000);
   setTimeout(showTime, 100);
 }
 
@@ -27,6 +26,10 @@ document.getElementById("twentyFiveMin").addEventListener("click", function() {
 
 document.getElementById("thirtyMin").addEventListener("click", function() {
     startTimer(30);
+});
+
+document.getElementById("oneHour").addEventListener("click", function() {
+    startTimer(60);
 });
 
 document.getElementById("customTimer").addEventListener("click", function() {
@@ -64,7 +67,6 @@ function startTimer(minutes) {
         // If time is up, stop the timer
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
-            //alert("Time's up!");
 			timerElement.textContent = "Time's Up!";
             
 			

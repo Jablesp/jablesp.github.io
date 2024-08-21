@@ -1,8 +1,8 @@
 <!--
-################################# Updated version by Jables - 2024: https://github.com/jablesp ################################
-######################################################### Original by #########################################################
-################################# Shahir Ahmed https://github.com/shahirmed and ###############################################
-################################# Zargham Ibrahim https://github.com/zargham-i/ ###############################################
+####################### Updated version by Jables - 2024: https://github.com/jablesp ######################
+############################################### Original by ###############################################
+####################### Shahir Ahmed https://github.com/shahirmed and #####################################
+####################### Zargham Ibrahim https://github.com/zargham-i/ #####################################
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,9 @@
                 <a href="#" id="twentyMin">20 Minutes</a>
                 <a href="#" id="twentyFiveMin">25 Minutes</a>
                 <a href="#" id="thirtyMin">30 Minutes</a>
-                <a href="#" id="customTimer">Custom</a>
+				<a href="#" id="oneHour">1 Hour</a>
+                <a href="#" id="customTimer">Custom - Minutes</a>
+				<!-- <a href="#" id="customTarget">Custom - Target</a> -->
             </div>
 
             <!-- Dropdown Menu Toggling -->
@@ -103,20 +105,24 @@
             }
         </script>
 
-        <!-- Hiding Fullscreen Icon With Inactivity -->
+        <!-- Hiding UI Icons With Inactivity -->
         <script>
             const fullscreenIcon = document.getElementById('fullscreenicon');
             const timerIcon = document.getElementById('menuIcon');
+			const dropmenuContent = document.getElementById("dropdownMenu");
             let inactivityTimeout;
 
             function showFullscreenIcon() {
                 fullscreenIcon.classList.remove('hidden');
                 timerIcon.classList.remove('hidden');
+				dropmenuContent.classList.remove('hidden');
+				
             }
 
             function hideFullscreenIcon() {
                 fullscreenIcon.classList.add('hidden');
                 timerIcon.classList.add('hidden');
+				dropmenuContent.classList.add('hidden');
             }
 
             function resetInactivityTimeout() {

@@ -2,7 +2,7 @@
 	font-family: 'Saira Condensed';
     font-style: normal;
     font-weight: 600;
-    font-display: swap;
+    font-display: block;
     src: url(https://fonts.gstatic.com/s/sairacondensed/v11/EJRLQgErUN8XuHNEtX81i9TmEkrnfc9Q962f.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -63,6 +63,12 @@ canvas {
     display: inline-block;
 }
 
+.dropdown-content.hidden {
+	opacity: 0;
+    transition: opacity 0.5s;
+}
+
+
 .dropbtn {
     display: inline-block;
     width: 75px;
@@ -105,7 +111,7 @@ canvas {
     position: absolute;
     color: #000000;
     font-family: "Saira Condensed";
-    letter-spacing: 10px;
+    letter-spacing: 6px;
     text-align: center;
 	
 	font-size: clamp(12px, 5vw, 300px);
@@ -122,7 +128,6 @@ canvas {
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2), 0 3px 30px 0 rgba(10, 20, 10, 10.19);
     border-radius: 15px;
     padding: 20px 0;
-    /* width: auto; */
     white-space: nowrap;
     margin: auto;
 	overflow: hide;
@@ -135,14 +140,11 @@ canvas {
     position: absolute;
     color: #000000;
 	font-size: clamp(48px, 5vw, 500px);
-    /* font-size: clamp(18px, 4vw, 200px); */
     font-family: "Saira Condensed";
     text-align: center;
     background: linear-gradient(184deg, rgba(219, 159, 38, 1) 0%, rgba(255, 218, 1, 1) 60%, rgba(219, 159, 38, 1) 100%);
     border-radius: 15px;
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2), 0 3px 30px 0 rgba(10, 20, 10, 10.19);
-    /* padding: 10px 0; */
-    /* width: 50%; */
 	width: 38%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(0.5);
