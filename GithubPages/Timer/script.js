@@ -1,6 +1,6 @@
 function showTime() {  
   const now = new Date();
-  time = now.toLocaleTimeString('en-US',{timeZone: 'America/New_York'});
+  time = now.toLocaleTimeString('en-US');
   document.getElementById("MyClockDisplay").textContent = time;
   setTimeout(showTime, 100);
 }
